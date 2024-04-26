@@ -8,7 +8,7 @@ const Footer = () => {
             href="#"
             className="flex justify-center space-x-3 lg:justify-start"
           >
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#FF00D3]">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#3C5B6F]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 32 32"

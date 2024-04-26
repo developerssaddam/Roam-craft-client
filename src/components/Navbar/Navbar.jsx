@@ -70,7 +70,7 @@ const Navbar = () => {
             src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
           />
         </div>
-        <Link to="/login" className="btn btn-sm bg-secondary text-white">
+        <Link to="/login" className="btn btn-sm bg-[#3C5B6F] text-white">
           Login
         </Link>
       </div>
