@@ -1,11 +1,37 @@
 import { Link } from "react-router-dom";
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  // handleShowHidePassword.
+  const handleShowHidePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  // handleUserLogin
+  const handleUserLogin = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    // validation
+    if (!email || !password) {
+      toast.warn("All fields are required!");
+    }
+
+    console.log(email, password);
+  };
+
   return (
     <div className="bg-gray-700 py-10 flex justify-center">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
         <h1 className="text-2xl font-bold text-center">Login Form</h1>
-        <form className="space-y-6">
+        <form onSubmit={handleUserLogin} className="space-y-6">
           <div className="space-y-1 text-sm">
             <label className="block text-gray-400">Email</label>
             <input
@@ -15,16 +41,20 @@ const Login = () => {
               className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-700 text-gray-100 focus:border-violet-400"
             />
           </div>
-          <div className="space-y-1 text-sm">
-            <label htmlFor="password" className="block text-gray-400">
-              Password
-            </label>
+          <div className="space-y-1 text-sm relative">
+            <label className="block text-gray-400">Password</label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Password"
               className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-700 text-gray-100 focus:border-violet-400"
             />
+            <span
+              onClick={handleShowHidePassword}
+              className="absolute bottom-8 right-4 cursor-pointer"
+            >
+              {showPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
+            </span>
             <div className="flex justify-end text-xs text-gray-400">
               <a rel="noopener noreferrer" href="#">
                 Forgot Password?

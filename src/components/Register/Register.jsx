@@ -1,11 +1,51 @@
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import { useState } from "react";
 
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const passCheck = /(?=.*[A-Z])(?=.*[a-z]){6,}/;
+
+  // handleShowHidePassword.
+  const handleShowHidePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  // handleRegister
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const photo = e.target.photo.value;
+    const password = e.target.password.value;
+    const terms = e.target.terms.checked;
+
+    // Validation.
+    if (!name || !email || !photo || !password) {
+      return toast.warn("All fields are required!");
+    }
+
+    if (!terms) {
+      return toast.warn("Accept terms & conditions!");
+    }
+
+    // Check Password.
+    if (!passCheck.test(password)) {
+      return toast.warn(
+        "Password must be at least six character with lowercase and uppercase letter!"
+      );
+    }
+
+    console.log(name, email, photo, password, terms);
+  };
+
   return (
     <div className="bg-gray-700 py-10 flex justify-center">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
         <h1 className="text-2xl font-bold text-center">Register Form</h1>
-        <form className="space-y-6">
+        <form onSubmit={handleRegister} className="space-y-6">
           <div className="space-y-1 text-sm">
             <label className="block text-gray-400">Name</label>
             <input
@@ -33,23 +73,31 @@ const Register = () => {
               className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-700 text-gray-100 focus:border-violet-400"
             />
           </div>
-          <div className="space-y-1 text-sm">
-            <label htmlFor="password" className="block text-gray-400">
-              Password
-            </label>
+          <div className="space-y-1 text-sm relative">
+            <label className="block text-gray-400">Password</label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               placeholder="Password"
               className="w-full px-4 py-3 rounded-md border-gray-700 bg-gray-700 text-gray-100 focus:border-violet-400"
             />
-            <div className="flex justify-end text-xs text-gray-400">
-              <a rel="noopener noreferrer" href="#">
-                Forgot Password?
-              </a>
-            </div>
+            <span
+              onClick={handleShowHidePassword}
+              className="absolute bottom-4 right-4 cursor-pointer"
+            >
+              {showPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
+            </span>
           </div>
-          <button className="block w-full p-3 text-center rounded-sm text-white bg-[#3C5B6F]">
+
+          <div className="space-y-1 text-sm">
+            <input type="checkbox" name="terms" />
+            <label className="ml-3 text-sm">Accept`s Terms & Conditions</label>
+          </div>
+
+          <button
+            type="submit"
+            className="block w-full p-3 text-center rounded-sm text-white bg-[#3C5B6F]"
+          >
             Register Now
           </button>
         </form>
