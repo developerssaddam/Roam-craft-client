@@ -1,10 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { loginUser } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // handleShowHidePassword.
   const handleShowHidePassword = () => {
@@ -21,8 +25,19 @@ const Login = () => {
 
     // validation
     if (!email || !password) {
-      toast.warn("All fields are required!");
+      return toast.warn("All fields are required!");
     }
+
+    // Now Login User.
+    loginUser(email, password)
+      .then(() => {
+        toast.success("User login successfull!");
+        location?.state ? navigate(location.state) : navigate("/");
+        form.reset();
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
 
     console.log(email, password);
   };

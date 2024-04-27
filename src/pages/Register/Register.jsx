@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../providers/AuthProviders";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const passCheck = /(?=.*[A-Z])(?=.*[a-z]){6,}/;
+  const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   // handleShowHidePassword.
   const handleShowHidePassword = () => {
@@ -16,11 +20,12 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
 
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const photo = e.target.photo.value;
-    const password = e.target.password.value;
-    const terms = e.target.terms.checked;
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
+    const terms = form.terms.checked;
 
     // Validation.
     if (!name || !email || !photo || !password) {
@@ -38,7 +43,21 @@ const Register = () => {
       );
     }
 
-    console.log(name, email, photo, password, terms);
+    // Create user
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        updateProfile(user, {
+          displayName: name,
+          photoURL: photo,
+        });
+        toast.success("User created successfull!");
+        form.reset();
+        navigate("/login");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   return (

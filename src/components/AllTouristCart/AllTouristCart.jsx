@@ -6,11 +6,13 @@ const AllTouristCart = () => {
   const id = 1;
   return (
     <div className="shadow-lg rounded-lg">
-      <img
-        className="w-full object-cover rounded-t-lg"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzlyYIsrJ2rHdtr9LFOwZ4hsrZNxzoBwLaPYbT2uh3Kw&s"
-        alt=""
-      />
+      <div className="overflow-hidden">
+        <img
+          className="w-full object-cover rounded-t-lg hover:scale-105 transition-all ease-in duration-150 delay-75"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzlyYIsrJ2rHdtr9LFOwZ4hsrZNxzoBwLaPYbT2uh3Kw&s"
+          alt=""
+        />
+      </div>
 
       <div className="p-5 font-medium">
         <h2 className="text-xl font-oswald font-medium">Cox`s Bazar</h2>
