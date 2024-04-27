@@ -6,7 +6,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, loginWithGoogle } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
-  // handleUserLogin
+  // handle UserLogin with Email and password
   const handleUserLogin = (e) => {
     e.preventDefault();
 
@@ -38,8 +38,18 @@ const Login = () => {
       .catch((error) => {
         toast.error(error.message);
       });
+  };
 
-    console.log(email, password);
+  // handle user login With Google.
+  const handleUserLoginWithGoogle = () => {
+    loginWithGoogle()
+      .then(() => {
+        toast.success("User Login Successfull!");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   return (
@@ -92,7 +102,11 @@ const Login = () => {
           <div className="flex-1 h-px sm:w-16 bg-gray-700"></div>
         </div>
         <div className="flex justify-center space-x-4">
-          <button aria-label="Log in with Google" className="p-3 rounded-sm">
+          <button
+            onClick={handleUserLoginWithGoogle}
+            aria-label="Log in with Google"
+            className="p-3 rounded-sm"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"

@@ -1,8 +1,13 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../providers/AuthProviders";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const { user, logoutUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const links = (
     <>
       <li>
@@ -23,18 +28,33 @@ const Navbar = () => {
     </>
   );
 
+  // Set theme state
   const [theme, setTheme] = useState("");
 
+  // Set Theme to localstorage
   const handleThemeChange = (e) => {
     const newTheme = e.target.checked ? "dark" : "light";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
   };
 
+  // Theme observe.
   useEffect(() => {
     const lsTheme = localStorage.getItem("theme");
     document.querySelector("html").setAttribute("data-theme", lsTheme);
   }, [theme]);
+
+  // Logout User.
+  const handleLogoutUser = () => {
+    logoutUser()
+      .then(() => {
+        toast.success("User logout successfull!");
+        navigate("/login");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
 
   return (
     <div className="navbar bg-base-300">
@@ -81,17 +101,32 @@ const Navbar = () => {
         />
         <div
           className="w-10 tooltip tooltip-bottom tooltip-secondary z-50 rounded-full mr-1 cursor-pointer"
-          data-tip="Md Saddam Hossen"
+          data-tip={user ? user.displayName : "No user found"}
         >
           <img
-            className="rounded-full"
-            alt="Tailwind CSS Navbar component"
-            src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+            className="rounded-full border"
+            alt="Profile image"
+            src={
+              user?.photoURL
+                ? user.photoURL
+                : "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+            }
           />
         </div>
-        <Link to="/login" className="btn btn-sm bg-[#3C5B6F] text-white">
-          Login
-        </Link>
+        {user ? (
+          <button
+            onClick={handleLogoutUser}
+            className="btn btn-sm bg-[#3C5B6F] text-white"
+          >
+            Logout
+          </button>
+        ) : (
+          <Link to="/login">
+            <button className="btn btn-sm bg-[#3C5B6F] text-white">
+              Login
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );
