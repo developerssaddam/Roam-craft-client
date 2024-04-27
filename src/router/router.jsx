@@ -1,12 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layouts from "../layouts/Layouts";
-import ErrorPage from "../components/ErrorPage/ErrorPage";
-import Home from "../components/Home/Home";
-import Login from "../components/Login/Login";
-import Register from "../components/Register/Register";
-import AllTourist from "../components/AllTourist/AllTourist";
-import AddTourist from "../components/AddTourist/AddTourist";
-import MyList from "../components/MyList/MyList";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+
+import AllTourist from "../pages/AllTourist/AllTourist";
+import AddTourist from "../pages/AddTourist/AddTourist";
+import MyList from "../pages/MyList/MyList";
+import Home from "../pages/Home/Home";
+import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
+import TouristSpotDetails from "../components/TouristSpotDetails/TouristSpotDetails";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +42,10 @@ const router = createBrowserRouter([
         path: "/mylist",
         element: <MyList />,
       },
-
+      {
+        path: "/touristspot/details/:id",
+        element: <TouristSpotDetails />,
+      },
     ],
   },
 ]);

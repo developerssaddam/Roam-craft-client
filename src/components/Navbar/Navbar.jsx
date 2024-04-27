@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const links = (
@@ -21,6 +22,19 @@ const Navbar = () => {
       </li>
     </>
   );
+
+  const [theme, setTheme] = useState("");
+
+  const handleThemeChange = (e) => {
+    const newTheme = e.target.checked ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
+
+  useEffect(() => {
+    const lsTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme", lsTheme);
+  }, [theme]);
 
   return (
     <div className="navbar bg-base-300">
@@ -60,8 +74,13 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        <input
+          type="checkbox"
+          className="toggle toggle-xs mr-1"
+          onChange={handleThemeChange}
+        />
         <div
-          className="w-10 tooltip tooltip-bottom tooltip-secondary z-50 rounded-full mr-3 cursor-pointer"
+          className="w-10 tooltip tooltip-bottom tooltip-secondary z-50 rounded-full mr-1 cursor-pointer"
           data-tip="Md Saddam Hossen"
         >
           <img
