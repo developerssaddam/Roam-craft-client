@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { createContext } from "react";
 import PropTypes from "prop-types";
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -19,6 +20,7 @@ const AuthProviders = ({ children }) => {
 
   // Social Login AuthProviders
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   // Create User
   const createUser = (email, password) => {
@@ -42,6 +44,11 @@ const AuthProviders = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  // LoginWithGithub
+  const loginWithGithub = () => {
+    return signInWithPopup(auth, githubProvider);
+  };
+
   // Observer function.
   useEffect(() => {
     const unsubScribe = onAuthStateChanged(auth, (user) => {
@@ -60,6 +67,7 @@ const AuthProviders = ({ children }) => {
     loginUser,
     logoutUser,
     loginWithGoogle,
+    loginWithGithub,
   };
 
   return (
