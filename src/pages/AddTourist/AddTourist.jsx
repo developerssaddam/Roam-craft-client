@@ -1,7 +1,14 @@
 import { toast } from "react-toastify";
 import "./AddTourist.css";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const AddTourist = () => {
+  // Get Current User
+  const { user } = useContext(AuthContext);
+  const user_name = user.displayName;
+  const email = user.email;
+
   // handleAddTouritSpot
   const handleAddTouritSpot = (e) => {
     e.preventDefault();
@@ -27,6 +34,8 @@ const AddTourist = () => {
       travel_time,
       total_visitors,
       photo,
+      user_name,
+      email,
     };
 
     fetch("http://localhost:5050/touristspot/create", {

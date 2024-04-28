@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layouts from "../layouts/Layouts";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
-
 import AllTourist from "../pages/AllTourist/AllTourist";
 import AddTourist from "../pages/AddTourist/AddTourist";
 import MyList from "../pages/MyList/MyList";
@@ -21,6 +20,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: () => fetch('http://localhost:5050/touristspot/create')
       },
 
       {

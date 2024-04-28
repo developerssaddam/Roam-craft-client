@@ -2,9 +2,10 @@ import { IoLocationSharp } from "react-icons/io5";
 import { BiDollar } from "react-icons/bi";
 import { GiWorld } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const TouristSpotCard = () => {
-  const id = 1;
+const TouristSpotCard = ({ cardData }) => {
+  const { _id } = cardData;
 
   return (
     <div className="shadow-lg rounded-lg flex flex-col lg:flex-row gap-1 border">
@@ -35,7 +36,7 @@ const TouristSpotCard = () => {
         <h3 className="font-semibold">
           Tota Visitors Per Year : <span className="font-oswald">10000</span>
         </h3>
-        <Link to={`/touristspot/details/${id}`}>
+        <Link to={`/touristspot/details/${_id}`}>
           <button className="btn btn-sm mt-3 bg-[#3C5B6F] text-white">
             View Details
           </button>
@@ -43,6 +44,10 @@ const TouristSpotCard = () => {
       </div>
     </div>
   );
+};
+
+TouristSpotCard.propTypes = {
+  cardData: PropTypes.object,
 };
 
 export default TouristSpotCard;
