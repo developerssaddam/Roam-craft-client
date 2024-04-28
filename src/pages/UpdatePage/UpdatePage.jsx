@@ -1,6 +1,12 @@
+import { useLoaderData, useNavigate } from "react-router-dom";
 import "./UpdatePage.css";
+import { toast } from "react-toastify";
 
 const UpdatePage = () => {
+  // Get CurrentData.
+  const currentData = useLoaderData();
+  const navigate = useNavigate();
+
   // handleUpdateTouritSpot
   const handleUpdateTouritSpot = (e) => {
     e.preventDefault();
@@ -16,7 +22,7 @@ const UpdatePage = () => {
     const total_visitors = form.total_visitors.value;
     const photo = form.photo.value;
 
-    console.log(
+    const updatedData = {
       name,
       country_name,
       location,
@@ -25,8 +31,27 @@ const UpdatePage = () => {
       season,
       travel_time,
       total_visitors,
-      photo
-    );
+      photo,
+    };
+
+    fetch(`http://localhost:5050/touristspot/update/${currentData._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Updated successfully!");
+          form.reset();
+          navigate("/mylist");
+        }
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   return (
@@ -45,6 +70,7 @@ const UpdatePage = () => {
               <input
                 type="text"
                 name="name"
+                defaultValue={currentData.name}
                 placeholder="Tourists-spot-name"
                 className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
               />
@@ -54,6 +80,7 @@ const UpdatePage = () => {
               <label className="text-sm">Country-Name</label>
               <input
                 type="text"
+                defaultValue={currentData.country_name}
                 name="country_name"
                 placeholder="Country-Name"
                 className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
@@ -64,6 +91,7 @@ const UpdatePage = () => {
               <label className="text-sm">Location</label>
               <input
                 type="text"
+                defaultValue={currentData.location}
                 name="location"
                 placeholder="Location"
                 className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
@@ -74,6 +102,7 @@ const UpdatePage = () => {
               <label className="text-sm">Description</label>
               <input
                 type="text"
+                defaultValue={currentData.desc}
                 name="desc"
                 placeholder="Short-Description"
                 className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
@@ -84,6 +113,7 @@ const UpdatePage = () => {
               <label className="text-sm">Average-Cost</label>
               <input
                 type="text"
+                defaultValue={currentData.cost}
                 name="cost"
                 placeholder="Average-Cost"
                 className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
@@ -94,6 +124,7 @@ const UpdatePage = () => {
               <label className="text-sm">Seasonality</label>
               <input
                 type="text"
+                defaultValue={currentData.season}
                 name="season"
                 placeholder="Seasonality"
                 className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
@@ -104,6 +135,7 @@ const UpdatePage = () => {
               <label className="text-sm">Travel-Time</label>
               <input
                 type="text"
+                defaultValue={currentData.travel_time}
                 name="travel_time"
                 placeholder="Travel-Time"
                 className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
@@ -114,6 +146,7 @@ const UpdatePage = () => {
               <label className="text-sm">TotaVisitorsPerYear</label>
               <input
                 type="text"
+                defaultValue={currentData.total_visitors}
                 name="total_visitors"
                 placeholder="Tota-Visitors-Per-Year"
                 className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
@@ -124,6 +157,7 @@ const UpdatePage = () => {
               <label className="text-sm">Photo</label>
               <input
                 type="text"
+                defaultValue={currentData.photo}
                 name="photo"
                 placeholder="Photo URL"
                 className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
@@ -133,7 +167,7 @@ const UpdatePage = () => {
               <input
                 type="submit"
                 value="Update Now"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-white focus:ring-violet-400 border-gray-700 bg-[#3C5B6F]"
+                className="w-full cursor-pointer rounded-md focus:ring focus:ring-opacity-75 text-white focus:ring-violet-400 border-gray-700 bg-[#3C5B6F]"
               />
             </div>
           </div>

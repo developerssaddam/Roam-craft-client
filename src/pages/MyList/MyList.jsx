@@ -55,7 +55,7 @@ const MyList = () => {
       <div className="my-8 text-center max-w-4xl mx-auto space-y-4 p-4">
         <h2 className="text-2xl font-oswald">My Tourists-Spots List Table</h2>
       </div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto container mx-auto border shadow-lg p-4">
         <table className="table">
           {/* head */}
           <thead>

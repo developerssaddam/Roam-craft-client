@@ -72,6 +72,8 @@ const router = createBrowserRouter([
             <UpdatePage />
           </ProtectedRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5050/touristspot/create/${params.id}`),
       },
     ],
   },
