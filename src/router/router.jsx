@@ -10,6 +10,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import TouristSpotDetails from "../components/TouristSpotDetails/TouristSpotDetails";
 import ProtectedRoute from "./ProtectedRoute";
+import UpdatePage from "../pages/UpdatePage/UpdatePage";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,15 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <TouristSpotDetails />
+          </ProtectedRoute>
+        ),
+      },
+
+      {
+        path: "/touristspot/update/:id",
+        element: (
+          <ProtectedRoute>
+            <UpdatePage />
           </ProtectedRoute>
         ),
       },

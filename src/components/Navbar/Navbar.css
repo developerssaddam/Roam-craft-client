@@ -1,8 +1,16 @@
-#menu{
+#menu {
   z-index: 999;
 }
 
 #menu li a.active {
-  background-color: #3C5B6F;
+  background-color: #3c5b6f;
   color: #ffffff;
+}
+
+#dropdown {
+  top: -999px !important;
+}
+
+#profile-info:hover #dropdown {
+  top: 30px !important;
 }

@@ -45,7 +45,10 @@ const MyListCart = () => {
           >
             <FaRegEye />
           </Link>
-          <Link className="btn btn-sm btn-warning">
+          <Link
+            to={`/touristspot/update/${id}`}
+            className="btn btn-sm btn-warning"
+          >
             <FaRegEdit />
           </Link>
           <Link className="btn btn-sm btn-error">
