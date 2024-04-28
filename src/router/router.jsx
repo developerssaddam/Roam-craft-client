@@ -35,6 +35,7 @@ const router = createBrowserRouter([
       {
         path: "/alltourist",
         element: <AllTourist />,
+        loader: () => fetch("http://localhost:5050/touristspot/create"),
       },
       {
         path: "/addtourist",
@@ -51,6 +52,7 @@ const router = createBrowserRouter([
             <MyList />
           </ProtectedRoute>
         ),
+        loader: () => fetch("http://localhost:5050/touristspot/create"),
       },
       {
         path: "/touristspot/details/:id",

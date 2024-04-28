@@ -1,6 +1,8 @@
+import { useLoaderData } from "react-router-dom";
 import TouristSpotCard from "../../components/TouristSpotCard/TouristSpotCard";
 
 const AllTourist = () => {
+  const touristCardData = useLoaderData();
   return (
     <>
       <div className="my-8 text-center max-w-4xl mx-auto space-y-4 p-4">
@@ -14,14 +16,9 @@ const AllTourist = () => {
         </p>
       </div>
       <div className="tourist_card_container container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 py-10">
-        <TouristSpotCard />
-        <TouristSpotCard />
-        <TouristSpotCard />
-        <TouristSpotCard />
-        <TouristSpotCard />
-        <TouristSpotCard />
-        <TouristSpotCard />
-        <TouristSpotCard />
+        {touristCardData.map((cardData, index) => (
+          <TouristSpotCard key={index} cardData={cardData} />
+        ))}
       </div>
     </>
   );
