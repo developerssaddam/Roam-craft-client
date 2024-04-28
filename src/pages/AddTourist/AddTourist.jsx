@@ -2,12 +2,15 @@ import { toast } from "react-toastify";
 import "./AddTourist.css";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
+import { useNavigate } from "react-router-dom";
 
 const AddTourist = () => {
   // Get Current User
   const { user } = useContext(AuthContext);
   const user_name = user.displayName;
   const email = user.email;
+
+  const navigate = useNavigate();
 
   // handleAddTouritSpot
   const handleAddTouritSpot = (e) => {
@@ -50,6 +53,7 @@ const AddTourist = () => {
         if (data.acknowledged) {
           toast.success("Tourist spot successfully added!");
           form.reset();
+          navigate("/");
         }
       })
       .catch((error) => {

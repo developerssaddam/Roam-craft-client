@@ -20,7 +20,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch('http://localhost:5050/touristspot/create')
+        loader: () => fetch("http://localhost:5050/touristspot/create"),
       },
 
       {
@@ -59,6 +59,8 @@ const router = createBrowserRouter([
             <TouristSpotDetails />
           </ProtectedRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5050/touristspot/create/${params.id}`),
       },
 
       {

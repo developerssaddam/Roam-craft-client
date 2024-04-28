@@ -3,8 +3,21 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMailOpen } from "react-icons/io";
 import { Helmet } from "react-helmet-async";
 import { BiDollar } from "react-icons/bi";
+import { useLoaderData } from "react-router-dom";
 
 const TouristSpotDetails = () => {
+  const singleData = useLoaderData();
+  const {
+    name,
+    country_name,
+    location,
+    cost,
+    season,
+    travel_time,
+    total_visitors,
+    photo,
+    desc,
+  } = singleData;
   return (
     <div className="container mx-auto">
       <Helmet>
@@ -14,43 +27,39 @@ const TouristSpotDetails = () => {
         <div className="content lg:col-span-2 p-4">
           {/* image-area */}
           <div className="my-4">
-            <img
-              className="w-full object-cover shadow-lg"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzlyYIsrJ2rHdtr9LFOwZ4hsrZNxzoBwLaPYbT2uh3Kw&s"
-              alt=""
-            />
+            <img className="w-full object-cover shadow-lg" src={photo} alt="" />
           </div>
 
           <div className="space-y-3 my-4 font-semibold flex flex-col md:flex-row md:justify-between md:items-center">
             <div>
               <div className="flex flex-col-reverse lg:flex-row justify-between lg:gap-3 lg:items-center">
                 <h2 className="text-[#222222] text-xl lg:text-2xl font-semibold font-oswald">
-                  Coxes Bazar
+                  {name}
                 </h2>
               </div>
               <div className="flex gap-1 items-center text-gray-500">
-                Country-Name : <span>Bangladesh</span>
+                Country-Name : <span>{country_name}</span>
               </div>
               <div className="flex gap-1 items-center text-gray-500">
                 <IoLocationOutline />
-                <p>Location</p>
+                <p>{location}</p>
               </div>
             </div>
             <div>
               <h3 className="flex items-center font-medium">
                 Average-Cost : <BiDollar className="ml-2" />{" "}
-                <span className="font-bold">200</span>
+                <span className="font-bold">{cost}</span>
               </h3>
               <p>
-                Seasonality : <span>Winter</span>
+                Seasonality : <span>{season}</span>
               </p>
               <p>
-                Travel-Time : <span>7 Days</span>
+                Travel-Time : <span>{travel_time} Days</span>
               </p>
             </div>
           </div>
           <h2 className="text-lg font-semibold font-oswald my-4">
-            Visitors-PerYear : <span>10000</span>
+            Visitors-PerYear : <span>{total_visitors}</span>
           </h2>
 
           {/* discription */}
@@ -58,14 +67,7 @@ const TouristSpotDetails = () => {
             <h2 className="text-2xl font-semibold mb-2 font-oswald">
               Description
             </h2>
-            <p className="mb-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-              quia, saepe, omnis enim assumenda fuga accusantium ducimus veniam,
-              voluptates at esse porro natus illum. Ullam quod ratione dolorem
-              quam, modi necessitatibus voluptas tempora delectus voluptatem
-              repellat a, eos aliquid magni velit minima commodi hic at atque
-              perferendis natus non saepe.
-            </p>
+            <p className="mb-4">{desc}</p>
           </div>
         </div>
 
