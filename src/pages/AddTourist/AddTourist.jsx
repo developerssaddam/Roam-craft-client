@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import "./AddTourist.css";
 
 const AddTourist = () => {
@@ -16,7 +17,7 @@ const AddTourist = () => {
     const total_visitors = form.total_visitors.value;
     const photo = form.photo.value;
 
-    console.log(
+    const newTouristSpot = {
       name,
       country_name,
       location,
@@ -25,8 +26,26 @@ const AddTourist = () => {
       season,
       travel_time,
       total_visitors,
-      photo
-    );
+      photo,
+    };
+
+    fetch("http://localhost:5050/touristspot/create", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newTouristSpot),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Tourist spot successfully added!");
+          form.reset();
+        }
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   return (
@@ -133,7 +152,7 @@ const AddTourist = () => {
               <input
                 type="submit"
                 value="Add Now"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-white focus:ring-violet-400 border-gray-700 bg-[#3C5B6F]"
+                className="w-full cursor-pointer rounded-md focus:ring focus:ring-opacity-75 text-white focus:ring-violet-400 border-gray-700 bg-[#3C5B6F]"
               />
             </div>
           </div>
