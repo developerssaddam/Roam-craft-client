@@ -2,8 +2,11 @@ import { IoLocationSharp } from "react-icons/io5";
 import { BiDollar } from "react-icons/bi";
 import { GiWorld } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { FaRegEye } from "react-icons/fa";
+import { FaRegEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
-const TouristSpotCard = () => {
+const MyListCart = () => {
   const id = 1;
 
   return (
@@ -35,14 +38,23 @@ const TouristSpotCard = () => {
         <h3 className="font-semibold">
           Tota Visitors Per Year : <span className="font-oswald">10000</span>
         </h3>
-        <Link to={`/touristspot/details/${id}`}>
-          <button className="btn btn-sm mt-3 bg-[#3C5B6F] text-white">
-            View Details
-          </button>
-        </Link>
+        <div className="flex gap-1 items-center mt-3 *:text-lg *:text-white">
+          <Link
+            to={`/touristspot/details/${id}`}
+            className="btn btn-sm btn-accent"
+          >
+            <FaRegEye />
+          </Link>
+          <Link className="btn btn-sm btn-warning">
+            <FaRegEdit />
+          </Link>
+          <Link className="btn btn-sm btn-error">
+            <MdDelete />
+          </Link>
+        </div>
       </div>
     </div>
   );
 };
 
-export default TouristSpotCard;
+export default MyListCart;

@@ -1,4 +1,4 @@
-import AllTouristCart from "../../components/AllTouristCart/AllTouristCart";
+import TouristSpotCard from "../../components/TouristSpotCard/TouristSpotCard";
 
 const AllTourist = () => {
   return (
@@ -13,16 +13,15 @@ const AllTourist = () => {
           experiences for travelers worldwide
         </p>
       </div>
-      <div className="tourist_card_container container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-10">
-        <AllTouristCart />
-        <AllTouristCart />
-        <AllTouristCart />
-        <AllTouristCart />
-        <AllTouristCart />
-        <AllTouristCart />
-        <AllTouristCart />
-        <AllTouristCart />
-        <AllTouristCart />
+      <div className="tourist_card_container container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 py-10">
+        <TouristSpotCard />
+        <TouristSpotCard />
+        <TouristSpotCard />
+        <TouristSpotCard />
+        <TouristSpotCard />
+        <TouristSpotCard />
+        <TouristSpotCard />
+        <TouristSpotCard />
       </div>
     </>
   );

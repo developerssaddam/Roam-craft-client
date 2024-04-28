@@ -1,4 +1,4 @@
-import TouristSpotCard from "../../components/TouristSpotCard/TouristSpotCard";
+import MyListCart from "../../components/MyListCard/MyListCart";
 
 const MyList = () => {
   return (
@@ -13,16 +13,14 @@ const MyList = () => {
           experiences for travelers worldwide
         </p>
       </div>
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
-        <TouristSpotCard />
-        <TouristSpotCard />
-        <TouristSpotCard />
-        <TouristSpotCard />
-        <TouristSpotCard />
-        <TouristSpotCard />
-        <TouristSpotCard />
-        <TouristSpotCard />
-        <TouristSpotCard />
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mb-8">
+        <MyListCart />
+        <MyListCart />
+        <MyListCart />
+        <MyListCart />
+        <MyListCart />
+        <MyListCart />
+        <MyListCart />
       </div>
     </>
   );
