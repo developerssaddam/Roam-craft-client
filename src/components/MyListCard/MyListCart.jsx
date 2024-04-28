@@ -5,9 +5,33 @@ import { Link } from "react-router-dom";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const MyListCart = () => {
   const id = 1;
+
+  // handleDelete
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your List-Item has been deleted.",
+          icon: "success",
+        });
+
+        console.log(id);
+      }
+    });
+  };
 
   return (
     <div className="shadow-lg rounded-lg flex flex-col lg:flex-row gap-1 border">
@@ -51,7 +75,10 @@ const MyListCart = () => {
           >
             <FaRegEdit />
           </Link>
-          <Link className="btn btn-sm btn-error">
+          <Link
+            onClick={() => handleDelete(id)}
+            className="btn btn-sm btn-error"
+          >
             <MdDelete />
           </Link>
         </div>
