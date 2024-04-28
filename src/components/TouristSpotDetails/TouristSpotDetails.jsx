@@ -4,8 +4,11 @@ import { IoMdMailOpen } from "react-icons/io";
 import { Helmet } from "react-helmet-async";
 import { BiDollar } from "react-icons/bi";
 import { useLoaderData } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const TouristSpotDetails = () => {
+  const { user } = useContext(AuthContext);
   const singleData = useLoaderData();
   const {
     name,
@@ -17,6 +20,8 @@ const TouristSpotDetails = () => {
     total_visitors,
     photo,
     desc,
+    user_name,
+    email,
   } = singleData;
   return (
     <div className="container mx-auto">
@@ -75,18 +80,22 @@ const TouristSpotDetails = () => {
         <div className="sidebar col-span-1 p-4">
           <div className="bg-white shadow-md p-5">
             <h2 className="text-2xl font-bold font_lato border-b pb-4">
-              Agent Information
+              User Information
             </h2>
             <div className="agent_profile_info">
               <div className="flex items-center gap-10 my-5">
                 <img
                   className="w-16 rounded-full border"
-                  src="https://code-theme.com/html/findhouses/images/testimonials/ts-1.jpg"
+                  src={
+                    user
+                      ? user.photoURL
+                      : "https://code-theme.com/html/findhouses/images/testimonials/ts-1.jpg"
+                  }
                   alt=""
                 />
                 <div>
-                  <h2 className="text-xl font-semibold">Lisa Clark</h2>
-                  <p className="text-gray-500">Agent of RoamCraft</p>
+                  <h2 className="text-xl font-semibold">{user_name}</h2>
+                  <p className="text-gray-500">User of RoamCraft</p>
                 </div>
               </div>
               <ul className="*:flex *:items-center *:gap-2 space-y-4 border-b pb-5">
@@ -100,7 +109,7 @@ const TouristSpotDetails = () => {
                 </li>
                 <li>
                   <IoMdMailOpen className="text-[#491272] font-semibold text-xl" />{" "}
-                  lisa@gmail.com
+                  {email}
                 </li>
               </ul>
 
