@@ -9,6 +9,7 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import TouristSpotDetails from "../components/TouristSpotDetails/TouristSpotDetails";
+import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -36,15 +37,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/addtourist",
-        element: <AddTourist />,
+        element: (
+          <ProtectedRoute>
+            <AddTourist />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/mylist",
-        element: <MyList />,
+        element: (
+          <ProtectedRoute>
+            <MyList />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/touristspot/details/:id",
-        element: <TouristSpotDetails />,
+        element: (
+          <ProtectedRoute>
+            <TouristSpotDetails />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

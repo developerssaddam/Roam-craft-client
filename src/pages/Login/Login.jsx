@@ -46,7 +46,7 @@ const Login = () => {
     loginWithGoogle()
       .then(() => {
         toast.success("User Login Successfull!");
-        navigate("/");
+        location?.state ? navigate(location.state) : navigate("/");
       })
       .catch((error) => {
         toast.error(error.message);
@@ -58,7 +58,7 @@ const Login = () => {
     loginWithGithub()
       .then(() => {
         toast.success("User Login Successfull!");
-        navigate("/");
+        location?.state ? navigate(location.state) : navigate("/");
       })
       .catch((error) => {
         toast.error(error.message);
