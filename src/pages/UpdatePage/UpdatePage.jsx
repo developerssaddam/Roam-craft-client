@@ -1,6 +1,7 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import "./UpdatePage.css";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const UpdatePage = () => {
   // Get CurrentData.
@@ -55,125 +56,131 @@ const UpdatePage = () => {
   };
 
   return (
-    <section className="py-10 px-6">
-      <form
-        onSubmit={handleUpdateTouritSpot}
-        className="max-w-3xl flex flex-col mx-auto shadow-lg"
-      >
-        <h2 className="text-center text-2xl font-bold font-oswald">
-          Update Tourist Spot
-        </h2>
-        <fieldset className="grid grid-cols-2 gap-6 p-6 rounded-md shadow-sm">
-          <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">Name</label>
-              <input
-                type="text"
-                name="name"
-                defaultValue={currentData.name}
-                placeholder="Tourists-spot-name"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+    <div>
+      <Helmet>
+        <title>RoamCraft | Update</title>
+      </Helmet>
 
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">Country-Name</label>
-              <input
-                type="text"
-                defaultValue={currentData.country_name}
-                name="country_name"
-                placeholder="Country-Name"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+      <section className="py-10 px-6">
+        <form
+          onSubmit={handleUpdateTouritSpot}
+          className="max-w-3xl flex flex-col mx-auto shadow-lg"
+        >
+          <h2 className="text-center text-2xl font-bold font-oswald">
+            Update Tourist Spot
+          </h2>
+          <fieldset className="grid grid-cols-2 gap-6 p-6 rounded-md shadow-sm">
+            <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  defaultValue={currentData.name}
+                  placeholder="Tourists-spot-name"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
 
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">Location</label>
-              <input
-                type="text"
-                defaultValue={currentData.location}
-                name="location"
-                placeholder="Location"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">Country-Name</label>
+                <input
+                  type="text"
+                  defaultValue={currentData.country_name}
+                  name="country_name"
+                  placeholder="Country-Name"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
 
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">Description</label>
-              <input
-                type="text"
-                defaultValue={currentData.desc}
-                name="desc"
-                placeholder="Short-Description"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">Location</label>
+                <input
+                  type="text"
+                  defaultValue={currentData.location}
+                  name="location"
+                  placeholder="Location"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
 
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">Average-Cost</label>
-              <input
-                type="text"
-                defaultValue={currentData.cost}
-                name="cost"
-                placeholder="Average-Cost"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">Description</label>
+                <input
+                  type="text"
+                  defaultValue={currentData.desc}
+                  name="desc"
+                  placeholder="Short-Description"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
 
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">Seasonality</label>
-              <input
-                type="text"
-                defaultValue={currentData.season}
-                name="season"
-                placeholder="Seasonality"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">Average-Cost</label>
+                <input
+                  type="text"
+                  defaultValue={currentData.cost}
+                  name="cost"
+                  placeholder="Average-Cost"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
 
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">Travel-Time</label>
-              <input
-                type="text"
-                defaultValue={currentData.travel_time}
-                name="travel_time"
-                placeholder="Travel-Time"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">Seasonality</label>
+                <input
+                  type="text"
+                  defaultValue={currentData.season}
+                  name="season"
+                  placeholder="Seasonality"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
 
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">TotaVisitorsPerYear</label>
-              <input
-                type="text"
-                defaultValue={currentData.total_visitors}
-                name="total_visitors"
-                placeholder="Tota-Visitors-Per-Year"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">Travel-Time</label>
+                <input
+                  type="text"
+                  defaultValue={currentData.travel_time}
+                  name="travel_time"
+                  placeholder="Travel-Time"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
 
-            <div className="col-span-full">
-              <label className="text-sm">Photo</label>
-              <input
-                type="text"
-                defaultValue={currentData.photo}
-                name="photo"
-                placeholder="Photo URL"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">TotaVisitorsPerYear</label>
+                <input
+                  type="text"
+                  defaultValue={currentData.total_visitors}
+                  name="total_visitors"
+                  placeholder="Tota-Visitors-Per-Year"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
+
+              <div className="col-span-full">
+                <label className="text-sm">Photo</label>
+                <input
+                  type="text"
+                  defaultValue={currentData.photo}
+                  name="photo"
+                  placeholder="Photo URL"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
+              <div className="col-span-full">
+                <input
+                  type="submit"
+                  value="Update Now"
+                  className="w-full cursor-pointer rounded-md focus:ring focus:ring-opacity-75 text-white focus:ring-violet-400 border-gray-700 bg-[#3C5B6F]"
+                />
+              </div>
             </div>
-            <div className="col-span-full">
-              <input
-                type="submit"
-                value="Update Now"
-                className="w-full cursor-pointer rounded-md focus:ring focus:ring-opacity-75 text-white focus:ring-violet-400 border-gray-700 bg-[#3C5B6F]"
-              />
-            </div>
-          </div>
-        </fieldset>
-      </form>
-    </section>
+          </fieldset>
+        </form>
+      </section>
+    </div>
   );
 };
 

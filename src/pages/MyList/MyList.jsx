@@ -6,6 +6,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const MyList = () => {
   const { user } = useContext(AuthContext);
@@ -52,6 +53,9 @@ const MyList = () => {
 
   return (
     <>
+      <Helmet>
+        <title>RoamCraft | My-List</title>
+      </Helmet>
       <div className="my-8 text-center max-w-4xl mx-auto space-y-4 p-4">
         <h2 className="text-2xl font-oswald">My Tourists-Spots List Table</h2>
       </div>

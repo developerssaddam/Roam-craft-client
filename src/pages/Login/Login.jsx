@@ -3,6 +3,7 @@ import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../providers/AuthProviders";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -67,6 +68,10 @@ const Login = () => {
 
   return (
     <div className="bg-gray-700 py-10 flex justify-center">
+      <Helmet>
+        <title>RoamCraft | Login</title>
+      </Helmet>
+
       <div
         data-aos="zoom-in"
         data-aos-duration="1500"

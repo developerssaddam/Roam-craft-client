@@ -3,6 +3,7 @@ import "./AddTourist.css";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const AddTourist = () => {
   // Get Current User
@@ -62,116 +63,122 @@ const AddTourist = () => {
   };
 
   return (
-    <section className="py-10 px-6">
-      <form
-        onSubmit={handleAddTouritSpot}
-        className="max-w-3xl flex flex-col mx-auto shadow-lg"
-      >
-        <h2 className="text-center text-2xl font-bold font-oswald">
-          Add Tourist Spot
-        </h2>
-        <fieldset className="grid grid-cols-2 gap-6 p-6 rounded-md shadow-sm">
-          <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">Name</label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Tourists-spot-name"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+    <div>
+      <Helmet>
+        <title>RoamCraft | Create</title>
+      </Helmet>
 
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">Country-Name</label>
-              <input
-                type="text"
-                name="country_name"
-                placeholder="Country-Name"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+      <section className="py-10 px-6">
+        <form
+          onSubmit={handleAddTouritSpot}
+          className="max-w-3xl flex flex-col mx-auto shadow-lg"
+        >
+          <h2 className="text-center text-2xl font-bold font-oswald">
+            Add Tourist Spot
+          </h2>
+          <fieldset className="grid grid-cols-2 gap-6 p-6 rounded-md shadow-sm">
+            <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Tourists-spot-name"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
 
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">Location</label>
-              <input
-                type="text"
-                name="location"
-                placeholder="Location"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">Country-Name</label>
+                <input
+                  type="text"
+                  name="country_name"
+                  placeholder="Country-Name"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
 
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">Description</label>
-              <input
-                type="text"
-                name="desc"
-                placeholder="Short-Description"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">Location</label>
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Location"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
 
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">Average-Cost</label>
-              <input
-                type="text"
-                name="cost"
-                placeholder="Average-Cost"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">Description</label>
+                <input
+                  type="text"
+                  name="desc"
+                  placeholder="Short-Description"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
 
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">Seasonality</label>
-              <input
-                type="text"
-                name="season"
-                placeholder="Seasonality"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">Average-Cost</label>
+                <input
+                  type="text"
+                  name="cost"
+                  placeholder="Average-Cost"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
 
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">Travel-Time</label>
-              <input
-                type="text"
-                name="travel_time"
-                placeholder="Travel-Time"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">Seasonality</label>
+                <input
+                  type="text"
+                  name="season"
+                  placeholder="Seasonality"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
 
-            <div className="col-span-full sm:col-span-3">
-              <label className="text-sm">TotaVisitorsPerYear</label>
-              <input
-                type="text"
-                name="total_visitors"
-                placeholder="Tota-Visitors-Per-Year"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
-            </div>
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">Travel-Time</label>
+                <input
+                  type="text"
+                  name="travel_time"
+                  placeholder="Travel-Time"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
 
-            <div className="col-span-full">
-              <label className="text-sm">Photo</label>
-              <input
-                type="text"
-                name="photo"
-                placeholder="Photo URL"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
-              />
+              <div className="col-span-full sm:col-span-3">
+                <label className="text-sm">TotaVisitorsPerYear</label>
+                <input
+                  type="text"
+                  name="total_visitors"
+                  placeholder="Tota-Visitors-Per-Year"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
+
+              <div className="col-span-full">
+                <label className="text-sm">Photo</label>
+                <input
+                  type="text"
+                  name="photo"
+                  placeholder="Photo URL"
+                  className="w-full rounded-md focus:ring focus:ring-opacity-75 text-gray-900 focus:ring-violet-400 border-gray-700"
+                />
+              </div>
+              <div className="col-span-full">
+                <input
+                  type="submit"
+                  value="Add Now"
+                  className="w-full cursor-pointer rounded-md focus:ring focus:ring-opacity-75 text-white focus:ring-violet-400 border-gray-700 bg-[#3C5B6F]"
+                />
+              </div>
             </div>
-            <div className="col-span-full">
-              <input
-                type="submit"
-                value="Add Now"
-                className="w-full cursor-pointer rounded-md focus:ring focus:ring-opacity-75 text-white focus:ring-violet-400 border-gray-700 bg-[#3C5B6F]"
-              />
-            </div>
-          </div>
-        </fieldset>
-      </form>
-    </section>
+          </fieldset>
+        </form>
+      </section>
+    </div>
   );
 };
 

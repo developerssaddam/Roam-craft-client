@@ -4,6 +4,7 @@ import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -87,6 +88,10 @@ const Register = () => {
 
   return (
     <div className="bg-gray-700 py-10 flex justify-center">
+      <Helmet>
+        <title>RoamCraft | Register</title>
+      </Helmet>
+
       <div
         data-aos="zoom-in"
         data-aos-duration="1500"
