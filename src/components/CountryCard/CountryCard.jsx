@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const CountryCard = () => {
-  const country_name = "bangladesh";
+const CountryCard = ({ country }) => {
+  const { country_name, desc, photo } = country;
 
   return (
     <Link to={`/touristspot/match/${country_name}`}>
@@ -9,22 +10,22 @@ const CountryCard = () => {
         <div className="overflow-hidden">
           <img
             className="w-full h-[230px] object-cover rounded-t-lg"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJJC36U-lL22upji8fv2b2AQn3cHholbp0L5HLjJDHvA&s"
+            src={photo}
             alt=""
           />
         </div>
         <div className="p-5 space-y-2">
           <h2 className="text-lg font-bold font-oswald ">
-            Country <span>Bangladesh</span>
+            <span>{country_name}</span>
           </h2>
-          <p className="text-gray-500">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum
-            alias placeat atque minus necessitatibus praesentium
-          </p>
+          <p className="text-gray-500">{desc}</p>
         </div>
       </div>
     </Link>
   );
 };
 
+CountryCard.propTypes = {
+  country: PropTypes.object,
+};
 export default CountryCard;
