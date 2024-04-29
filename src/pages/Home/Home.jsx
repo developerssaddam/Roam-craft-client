@@ -4,6 +4,7 @@ import TouristSection from "../../components/TouristSection/TouristSection";
 import { useLoaderData } from "react-router-dom";
 import TeamPage from "../TeamPage/TeamPage";
 import Destination from "../Destination/Destination";
+import Countrypage from "../CountryPage/CountryPage";
 
 const Home = () => {
   const touristCardData = useLoaderData();
@@ -14,6 +15,7 @@ const Home = () => {
       </Helmet>
       <Slider />
       <TouristSection touristCardData={touristCardData} />
+      <Countrypage />
       <Destination />
       <TeamPage />
     </div>
