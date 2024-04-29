@@ -35,16 +35,13 @@ const UpdatePage = () => {
       photo,
     };
 
-    fetch(
-      `https://roamcraft-server.vercel.app/touristspot/update/${currentData._id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updatedData),
-      }
-    )
+    fetch(`https://roamcraft-server.vercel.app/touristspot/update/${currentData._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedData),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {

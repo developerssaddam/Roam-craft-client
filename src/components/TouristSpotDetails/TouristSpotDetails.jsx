@@ -32,13 +32,13 @@ const TouristSpotDetails = () => {
         <div className="content lg:col-span-2 p-4">
           {/* image-area */}
           <div className="my-4">
-            <img className="w-full object-cover shadow-lg" src={photo} alt="" />
+            <img className="w-full h-full object-cover" src={photo} alt="" />
           </div>
 
           <div className="space-y-3 my-4 font-semibold flex flex-col md:flex-row md:justify-between md:items-center">
-            <div>
+            <div className="space-y-2">
               <div className="flex flex-col-reverse lg:flex-row justify-between lg:gap-3 lg:items-center">
-                <h2 className="text-[#222222] text-xl lg:text-2xl font-semibold font-oswald">
+                <h2 className="text-[#3C5B6F] text-xl lg:text-2xl font-semibold font-oswald">
                   {name}
                 </h2>
               </div>
@@ -50,7 +50,7 @@ const TouristSpotDetails = () => {
                 <p>{location}</p>
               </div>
             </div>
-            <div>
+            <div className="text-gray-500 space-y-2">
               <h3 className="flex items-center font-medium">
                 Average-Cost : <BiDollar className="ml-2" />{" "}
                 <span className="font-bold">{cost}</span>
@@ -63,23 +63,26 @@ const TouristSpotDetails = () => {
               </p>
             </div>
           </div>
-          <h2 className="text-lg font-semibold font-oswald my-4">
+          <h2 className="text-lg font-medium text-gray-600 font-oswald my-4">
             Visitors-PerYear : <span>{total_visitors}</span>
           </h2>
 
           {/* discription */}
           <div className="my-4">
-            <h2 className="text-2xl font-semibold mb-2 font-oswald">
+            <h2 className="text-2xl font-medium text-gray-600 mb-2 font-oswald underline">
               Description
             </h2>
-            <p className="mb-4">{desc}</p>
+            <p className="mb-2 text-gray-500">
+              RoamCraft: Unleash Your Wanderlust, Craft Your Journey!
+            </p>
+            <p className="mb-2 text-gray-500">{desc}</p>
           </div>
         </div>
 
         {/* Sidebar */}
         <div className="sidebar col-span-1 p-4">
           <div className="bg-white shadow-md p-5">
-            <h2 className="text-2xl font-bold font_lato border-b pb-4">
+            <h2 className="text-xl font-oswald text-[#3C5B6F] font-bold font_lato border-b pb-4">
               User Information
             </h2>
             <div className="agent_profile_info">
@@ -94,8 +97,8 @@ const TouristSpotDetails = () => {
                   alt=""
                 />
                 <div>
-                  <h2 className="text-xl font-semibold">{user_name}</h2>
-                  <p className="text-gray-500">User of RoamCraft</p>
+                  <h2 className="text-lg italic font-oswald text-[#3C5B6F] font-semibold">{user_name}</h2>
+                  <p className="text-gray-600 text-sm">User of RoamCraft</p>
                 </div>
               </div>
               <ul className="*:flex *:items-center *:gap-2 space-y-4 border-b pb-5">
