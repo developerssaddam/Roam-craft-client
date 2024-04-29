@@ -1,9 +1,9 @@
 import { toast } from "react-toastify";
-import "./AddTourist.css";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import "./AddTourist.css";
 
 const AddTourist = () => {
   // Get Current User
@@ -28,6 +28,21 @@ const AddTourist = () => {
     const total_visitors = form.total_visitors.value;
     const photo = form.photo.value;
 
+    // validation
+    if (
+      !name ||
+      !country_name ||
+      !location ||
+      !desc ||
+      !cost ||
+      !season ||
+      !travel_time ||
+      !total_visitors ||
+      !photo
+    ) {
+      return toast.error("All fields are required!");
+    }
+
     const newTouristSpot = {
       name,
       country_name,
@@ -42,7 +57,7 @@ const AddTourist = () => {
       email,
     };
 
-    fetch("https://roamcraft-server.vercel.app/create", {
+    fetch("https://roamcraft-server.vercel.app/touristspot/create", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -58,7 +73,7 @@ const AddTourist = () => {
         }
       })
       .catch((error) => {
-        console.log(error.message);
+        toast.error(error.message);
       });
   };
 
