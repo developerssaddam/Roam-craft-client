@@ -26,7 +26,7 @@ const MyList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5050/touristspot/delete/${id}`, {
+        fetch(`https://roamcraft-server.vercel.app/touristspot/delete/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

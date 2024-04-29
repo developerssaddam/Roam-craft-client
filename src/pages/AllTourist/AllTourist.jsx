@@ -27,7 +27,7 @@ const AllTourist = () => {
       {/* sort area */}
       <div className="flex justify-center">
         <details className="dropdown">
-          <summary className="m-1 btn bg-[#3C5B6F] text-white">
+          <summary className="m-1 btn btn-sm bg-[#3C5B6F] text-white">
             Sort By <FaAngleDown />{" "}
           </summary>
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">

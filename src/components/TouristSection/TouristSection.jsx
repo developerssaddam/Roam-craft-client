@@ -15,7 +15,7 @@ const TouristSection = ({ touristCardData }) => {
         </p>
       </div>
 
-      <div className="tourist_card_container container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mb-8">
+      <div className="tourist_card_container container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 mb-8">
         {touristCardData.slice(0, 6).map((cardData, index) => (
           <TouristSpotCard key={index} cardData={cardData} />
         ))}

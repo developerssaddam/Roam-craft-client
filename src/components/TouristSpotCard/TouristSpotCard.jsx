@@ -18,17 +18,17 @@ const TouristSpotCard = ({ cardData }) => {
   } = cardData;
 
   return (
-    <div className="shadow-lg rounded-lg flex flex-col lg:flex-row gap-1 border">
+    <div className="shadow-lg rounded-lg flex flex-col lg:flex-row lg:items-center border">
       <div className="overflow-hidden flex-1">
         <img
-          className="w-full h-full object-cover rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none hover:scale-105 transition-all ease-in duration-150 delay-75"
+          className="w-full h-[230px] object-cover rounded-t-lg lg:rounded-l-lg lg:rounded-tr-none hover:scale-105 transition-all ease-in duration-150 delay-75"
           src={photo}
           alt=""
         />
       </div>
 
-      <div className="p-3 font-medium">
-        <h2 className="text-2xl font-oswald font-medium">{name}</h2>
+      <div className="p-3 font-medium flex-1">
+        <h2 className="text-2xl font-oswald font-medium mb-2">{name}</h2>
         <h3 className="text-gray-600 font-medium">Seasonality : {season}</h3>
         <div className="flex gap-4">
           <h3 className="flex items-center gap-1">
@@ -50,7 +50,7 @@ const TouristSpotCard = ({ cardData }) => {
           <span className="font-oswald">{total_visitors}</span>
         </h3>
         <Link to={`/touristspot/details/${_id}`}>
-          <button className="btn btn-sm mt-3 bg-[#3C5B6F] text-white">
+          <button className="btn btn-sm bg-[#3C5B6F] text-white mt-8">
             View Details
           </button>
         </Link>

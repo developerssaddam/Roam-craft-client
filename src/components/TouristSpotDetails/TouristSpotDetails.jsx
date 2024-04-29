@@ -85,7 +85,7 @@ const TouristSpotDetails = () => {
             <div className="agent_profile_info">
               <div className="flex items-center gap-10 my-5">
                 <img
-                  className="w-16 rounded-full border"
+                  className="w-16 h-16 rounded-full border"
                   src={
                     user
                       ? user.photoURL
