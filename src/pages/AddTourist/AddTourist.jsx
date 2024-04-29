@@ -42,7 +42,7 @@ const AddTourist = () => {
       email,
     };
 
-    fetch("http://localhost:5050/touristspot/create", {
+    fetch("https://roamcraft-server.vercel.app/create", {
       method: "POST",
       headers: {
         "content-type": "application/json",

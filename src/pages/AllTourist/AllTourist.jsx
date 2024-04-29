@@ -6,7 +6,6 @@ import { useState } from "react";
 
 const AllTourist = () => {
   const loadedCardData = useLoaderData();
-
   const [touristCardData, setTouristCardData] = useState(loadedCardData);
 
   // handleSortByAverageCost

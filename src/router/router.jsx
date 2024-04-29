@@ -20,7 +20,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5050/touristspot/create"),
+        loader: () => fetch("https://roamcraft-server.vercel.app/touristspot/create"),
       },
 
       {
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       {
         path: "/alltourist",
         element: <AllTourist />,
-        loader: () => fetch("http://localhost:5050/touristspot/create"),
+        loader: () => fetch("https://roamcraft-server.vercel.app/touristspot/create"),
       },
       {
         path: "/addtourist",
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
             <MyList />
           </ProtectedRoute>
         ),
-        loader: () => fetch("http://localhost:5050/touristspot/create"),
+        loader: () => fetch("https://roamcraft-server.vercel.app/touristspot/create"),
       },
       {
         path: "/touristspot/details/:id",
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5050/touristspot/create/${params.id}`),
+          fetch(`https://roamcraft-server.vercel.app/touristspot/create/${params.id}`),
       },
 
       {
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5050/touristspot/create/${params.id}`),
+          fetch(`https://roamcraft-server.vercel.app/touristspot/create/${params.id}`),
       },
     ],
   },
