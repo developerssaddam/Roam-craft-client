@@ -6,7 +6,7 @@ const Countrypage = () => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5050/touristspot/country")
+    fetch("https://roamcraft-server.vercel.app/touristspot/country")
       .then((res) => res.json())
       .then((data) => setCountries(data));
   }, []);

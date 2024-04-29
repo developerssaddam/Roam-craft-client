@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 const CountryCard = ({ country }) => {
   const { country_name, desc, photo } = country;
-
   return (
     <Link to={`/touristspot/match/${country_name}`}>
       <div className="country_item border shadow-lg rounded-lg">

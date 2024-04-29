@@ -80,6 +80,10 @@ const router = createBrowserRouter([
       {
         path: "/touristspot/match/:country_name",
         element: <MatchCountryOfTouristSpotPage />,
+        loader: ({ params }) =>
+          fetch(
+            `https://roamcraft-server.vercel.app/touristspot/match/${params.country_name}`
+          ),
       },
     ],
   },
