@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 
 const CountryCard = () => {
+  const country_name = "bangladesh";
+
   return (
-    <Link>
+    <Link to={`/touristspot/match/${country_name}`}>
       <div className="country_item border shadow-lg rounded-lg">
         <div className="overflow-hidden">
           <img

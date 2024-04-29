@@ -10,6 +10,7 @@ import Register from "../pages/Register/Register";
 import TouristSpotDetails from "../components/TouristSpotDetails/TouristSpotDetails";
 import ProtectedRoute from "./ProtectedRoute";
 import UpdatePage from "../pages/UpdatePage/UpdatePage";
+import MatchCountryOfTouristSpotPage from "../pages/MatchCountryOfTouristSpotPage/MatchCountryOfTouristSpotPage";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,11 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`https://roamcraft-server.vercel.app/touristspot/${params.id}`),
+      },
+
+      {
+        path: "/touristspot/match/:country_name",
+        element: <MatchCountryOfTouristSpotPage />,
       },
     ],
   },
