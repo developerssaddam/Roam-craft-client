@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const TouristSection = ({ touristCardData }) => {
   return (
-    <>
+    <div>
       <div className="my-8 text-center max-w-4xl mx-auto space-y-4 p-4">
         <h2 className="text-2xl font-oswald">Tourists Spots</h2>
         <p className="italic">
@@ -20,7 +20,7 @@ const TouristSection = ({ touristCardData }) => {
           <TouristSpotCard key={index} cardData={cardData} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
