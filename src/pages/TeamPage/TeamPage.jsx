@@ -18,10 +18,13 @@ const TeamPage = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 mb-10">
         <div className="shadow-lg relative">
-          <img
-            src="https://img.freepik.com/free-photo/lifestyle-people-emotions-casual-concept-confident-nice-smiling-asian-woman-cross-arms-chest-confident-ready-help-listening-coworkers-taking-part-conversation_1258-59335.jpg"
-            alt=""
-          />
+          <div className="overflow-hidden">
+            <img
+              className="hover:scale-105 transition-all ease-in-out duration-100"
+              src="https://img.freepik.com/free-photo/lifestyle-people-emotions-casual-concept-confident-nice-smiling-asian-woman-cross-arms-chest-confident-ready-help-listening-coworkers-taking-part-conversation_1258-59335.jpg"
+              alt=""
+            />
+          </div>
 
           <div className="text-center py-5">
             <p className="text-lg font-medium">Arling Tracy</p>
@@ -43,13 +46,16 @@ const TeamPage = () => {
           </div>
         </div>
         <div className="shadow-lg relative">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxfq3dneguiF8RGj4tlXJ7jIlBy8IgUcE03dT8hdyeufGA5rH98fiNEJVTjCwdhb3aHfk&usqp=CAU"
-            alt=""
-          />
+          <div className="overflow-hidden">
+            <img
+              className="hover:scale-105 transition-all ease-in-out duration-100"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxfq3dneguiF8RGj4tlXJ7jIlBy8IgUcE03dT8hdyeufGA5rH98fiNEJVTjCwdhb3aHfk&usqp=CAU"
+              alt=""
+            />
+          </div>
 
           <div className="text-center py-5">
-            <p className="text-lg font-medium">Arling Tracy</p>
+            <p className="text-lg font-medium">Katy Grace</p>
             <p className="text-sm">Team member of RoamCraft</p>
           </div>
           <div className="absolute right-0 top-0">
@@ -68,13 +74,16 @@ const TeamPage = () => {
           </div>
         </div>
         <div className="shadow-lg relative">
-          <img
-            src="https://powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png"
-            alt=""
-          />
+          <div className="overflow-hidden">
+            <img
+              className="hover:scale-105 transition-all ease-in-out duration-100"
+              src="https://powerpackelements.com/wp-content/uploads/2017/11/Team-memeber-01.png"
+              alt=""
+            />
+          </div>
 
           <div className="text-center py-5">
-            <p className="text-lg font-medium">Arling Tracy</p>
+            <p className="text-lg font-medium">Mark Web</p>
             <p className="text-sm">Team member of RoamCraft</p>
           </div>
           <div className="absolute right-0 top-0">
@@ -93,13 +102,16 @@ const TeamPage = () => {
           </div>
         </div>
         <div className="shadow-lg relative">
-          <img
-            src="https://agighana.org/wp-content/uploads/2019/08/team-member-02.jpg"
-            alt=""
-          />
+          <div className="overflow-hidden">
+            <img
+              className="hover:scale-105 transition-all ease-in-out duration-100"
+              src="https://agighana.org/wp-content/uploads/2019/08/team-member-02.jpg"
+              alt=""
+            />
+          </div>
 
           <div className="text-center py-5">
-            <p className="text-lg font-medium">Arling Tracy</p>
+            <p className="text-lg font-medium">Nina Thomas</p>
             <p className="text-sm">Team member of RoamCraft</p>
           </div>
           <div className="absolute right-0 top-0">
@@ -118,13 +130,16 @@ const TeamPage = () => {
           </div>
         </div>
         <div className="shadow-lg relative">
-          <img
-            src="https://www.columbuspm.org/wp-content/uploads/2015/09/team-member-sample.jpg"
-            alt=""
-          />
+          <div className="overflow-hidden">
+            <img
+              className="hover:scale-105 transition-all ease-in-out duration-100"
+              src="https://www.columbuspm.org/wp-content/uploads/2015/09/team-member-sample.jpg"
+              alt=""
+            />
+          </div>
 
           <div className="text-center py-5">
-            <p className="text-lg font-medium">Arling Tracy</p>
+            <p className="text-lg font-medium">Katy Grace</p>
             <p className="text-sm">Team member of RoamCraft</p>
           </div>
           <div className="absolute right-0 top-0">
