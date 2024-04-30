@@ -34,4 +34,6 @@
     - react-toastify
     - sweetalert2
     - aos
+    - React-tooltip
+    - Lottie React
 ```
