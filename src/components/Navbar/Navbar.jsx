@@ -3,6 +3,8 @@ import "./Navbar.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import { toast } from "react-toastify";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
@@ -82,9 +84,22 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost text-xl font-oswald">
+
+          <Link
+            id="myRoamCraft"
+            to="/"
+            className="btn btn-ghost text-xl font-oswald"
+          >
             RoamCraft
           </Link>
+
+          <Tooltip
+            className="z-[999]"
+            anchorSelect="#myRoamCraft"
+            content="Unveiling the Treasures of Our World!"
+            place="bottom-start"
+            variant="light"
+          />
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul id="menu" className="menu menu-horizontal px-1">
