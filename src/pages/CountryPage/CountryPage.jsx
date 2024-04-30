@@ -14,7 +14,7 @@ const Countrypage = () => {
   return (
     <div className="container mx-auto mt-16">
       <div className="my-8 text-center max-w-4xl mx-auto space-y-4 p-4">
-        <h2 className="text-2xl font-oswald">Popular-Countries</h2>
+        <h2 className="text-2xl font-oswald">Countries</h2>
         <p className="italic">
           Explore Diverse Cultures, Stunning Landscapes, and Rich Histories:
           RoamCraft`s Top Countries Await Your Discovery. Start Your Adventure

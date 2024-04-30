@@ -7,13 +7,11 @@ const MatchCountryOfTouristSpotPage = () => {
   return (
     <div className="container mx-auto">
       <div className="my-8 text-center max-w-4xl mx-auto space-y-4 p-4">
-        <h2 className="text-2xl font-oswald">
-          All Tourist Spot Of {"Bangladesh"}
-        </h2>
+        <h2 className="text-2xl font-oswald">All Tourist Spots</h2>
         <p className="italic">
-          Discover the Art of Roaming: Unveiling the Hidden Gems of{" "}
-          {"Bangladesh"} with RoamCraft – Crafting Unforgettable Travel
-          Experiences, One Adventure at a Time!
+          Discover the Art of Roaming: Unveiling the Hidden Gems of Any
+          Countryes with RoamCraft – Crafting Unforgettable Travel Experiences,
+          One Adventure at a Time!
         </p>
       </div>
 

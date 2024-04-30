@@ -6,12 +6,13 @@ import PropTypes from "prop-types";
 
 const MatchTouristSpotCard = ({ data }) => {
   const { _id, name, country_name, desc, location, season, cost } = data;
+  const description = desc.slice(0, 400)
 
   return (
     <div className="shadow-lg rounded-lg border">
       <div className="p-5 space-y-2 font-medium">
         <h2 className="text-xl text-[#1C1678] font-oswald font-semibold mb-4">
-          Name : {name}
+          {name}
         </h2>
         <h3 className="flex text-lg items-center gap-1 font-medium md:font-bold">
           <GiWorld className="text-[#1C1678]" /> Country :{" "}
@@ -32,7 +33,7 @@ const MatchTouristSpotCard = ({ data }) => {
 
         <div>
           <h2 className="text-xl font-bold underline mb-2">Description</h2>
-          <p>{desc}</p>
+          <p>{description}</p>
         </div>
 
         <Link to={`/touristspot/details/${_id}`}>
